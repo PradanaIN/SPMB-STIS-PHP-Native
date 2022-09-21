@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    background: #E4E9F7;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* ========== SECTION ========== */
+section {
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.open ~ section {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+@media (max-width: 420px) {
+    .sidebar li .tooltip {
+    display: none;
+    }
+}
+
+/* Container */
+.container {  display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 150px auto auto;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "header header header"
+    "content content content"
+    "pagination pagination pagination";
+    margin: 0 10px;
+}
+
+.header { grid-area: header; }
+
+.content { grid-area: content; }
+
+.pagination { grid-area: pagination; }
+
+/* ========== HEADER ========== */
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: right;
+}
+
+.header .top h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 54px;
+    color: #303972;
+}
+
+.header .top .user-profile .status {
+    margin-right: 10px;
+}
+
+/* Header top berisi search bar dan aksi (admin) */
+.header .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header .bottom .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 250px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+}
+
+.header .bottom .search:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.header .bottom .search i {
+    margin: 0 10px;
+}
+
+.header .bottom .search input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #A098AE;
+    outline: none;
+}
+
+.header .bottom .add {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background-color: #FFFFFF;
+    color: #303972;
+    border-radius: 25px;
+}
+
+.header .bottom .add a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    padding: 0 10px;
+    border-radius: 25px;
+    color: #303972;
+}
+
+.header .bottom .add a:hover {
+    background-color: #303972;
+    color: #FFFFFF;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.header .bottom .add a i {
+    margin: 0 5px;
+}
+
+.header .bottom .add a p {
+    margin: 0 5px;
+}
+
+/* ========== CONTENT ========== */
+.content {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th  {
+    background-color: #303972;
+    color: #FFFFFF;
+    font-size: 15px;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #E4E9F7;
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+tr:hover {
+    color: #0076C0;
+    background-color: #E4E9F7;
+}
+
+td button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+td button i {
+    color: #FFFFFF;
+}
+
+td button:nth-child(1) {
+    background-color: #0076C0;
+}
+
+td button:nth-child(1):hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+td button:nth-child(2) {
+    background-color: #B23B3B;
+}
+
+td button:nth-child(2):hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ========== PAGINATION ========== */
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.pagination a{
+    font-family: "Open Sans", sans-serif;
+    background: #fff;
+    border: 1px solid #A098AE;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.pagination a.active {
+    background: #303972;
+    color: #fff;
+}
+
+.pagination a:hover{
+    background: #303972;
+    color: #fff;
+    transition-duration: 0.3s;
+}
+
+
+
+/* ========== CSS UMUM ========== */
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-profile .status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-profile .status h4 {
+    font-size: 15px;
+    color: #303972;
+}
+
+.user-profile .status p {
+    font-size: 14px;
+    color: #A098AE;
+}
+
+.user-profile .photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #A098AE;
+}
+
+.user-profile .photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+
+/* ========== RESPONSIVE WEB CSS ========== */
+@media (max-width: 768px) {
+    .content {
+        overflow: visible;
+        width: calc(100% - 10px);
+    }
+
+    
+    th:first-child, td:first-child {
+        display: none;
+    }
+
+}
+
+@media (max-width: 726px){
+    thead{
+        display: none;
+    }
+
+    th:first-child, td:first-child {
+        display: none;
+    }
+
+    td{
+    display: block;
+    }
+
+    td:nth-child(2), td:nth-child(3){
+        background-color: #303972;
+        color: #fff;
+        text-align: center;
+    }
+
+    td:nth-child(4)::before{
+        content: "Prodi";
+    }
+
+    td:nth-child(5)::before{
+        content: "Formasi";
+    }
+
+    td:nth-child(6)::before{
+        content: "Nomor Tes";
+    }
+
+    td:nth-child(7)::before{
+        content: "Tanggal tes";
+    }
+
+    td:nth-child(8)::before{
+        content: "Aksi";
+    }
+
+    td{
+        text-align: right;
+    }
+
+    td::before{
+        float: left;
+        margin-right: 3rem;
+        font-weight: bold;
+    }
+
+    .header .bottom .search {
+        width: 175px;
+    }
+}
+
+@media (max-width: 578px) {
+    .header .top .user-profile {
+        display: none;
+    }
+
+    .header .bottom .add {
+        width: 40px;
+    }
+
+    .header .bottom .add a p {
+        display: none;
+    }
+}

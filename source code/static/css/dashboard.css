@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  background: #E4E9F7;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* ========== SECTION ========== */
+section {
+  position: relative;
+  background: #E4E9F7;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+}
+
+.sidebar.open ~ section {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+  display: none;
+  }
+}
+
+/* Container */
+.container {  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 75px 115px auto auto;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header header"
+    "summary summary summary shortcut"
+    "calendar calendar task shortcut"
+    "calendar calendar task shortcut";
+    margin: 0 10px;
+}
+
+.header { grid-area: header; }
+
+.summary { grid-area: summary; }
+
+.calendar { grid-area: calendar; }
+
+.task { grid-area: task; }
+
+.shortcut { grid-area: shortcut; }
+
+/* ========== HEADER ========== */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  padding: 10px;
+}
+
+.header h3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 54px;
+  color: #303972;
+}
+
+.header .user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-profile .status {
+  margin-right: 10px;
+}
+
+/* ========== SUMMARY  ========== */
+.summary {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.summary ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.summary li {
+  margin: 10px;
+}
+
+.summary .box {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.summary #peserta {
+  background-color: #4D44B5;
+}
+
+.summary #pengawas {
+  background-color: #FB7D5B;
+}
+
+.summary #laporan {
+  background-color: #303972;
+}
+
+.summary .icons {
+  display: flex;
+  align-items: center;    
+  text-align: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+/* ========== CALENDAR CONTENT ========== */
+.calendar {
+  margin-top: 0;
+}
+
+.calendar iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+}
+
+/* ========== TASK CONTENT ========== */
+.task {
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.task li .task-box {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  text-align: left;
+  justify-content: left;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.task li .task-box .task-border {
+  display: flex;
+  width: 15px;
+  height: 100px;
+  background-color: #FFFFFF;
+  background: #4D44B5;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.task li .task-box .task-content .task-title {
+  font-size: 15px;
+  display: block;
+  margin: 10px;
+}
+
+.task li .task-box .task-content .task-icon {
+  font-size: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task li .task-box .task-content .task-title p {
+  font-size: 12px;
+}
+
+.task li .task-box .task-content .task-icon i {
+  margin-bottom: 5px;
+}
+
+.task li .task-box .task-content .task-icon i span {
+  font-size: 10px;
+}
+
+/* ========== SHORTCUT CONTENT ========== */
+.shortcut {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  padding: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+/* Shortcut Daftar Peserta */
+.shortcut .peserta-shortcut {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcut .peserta-shortcut .peserta-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.shortcut .peserta-shortcut .peserta-header .daftar-peserta {
+  height: 50px;
+}
+
+.shortcut .peserta-shortcut .peserta-header .daftar-peserta h3 {
+  font-size: 24px;
+  color: #303972;
+}
+
+.shortcut .peserta-shortcut .peserta-header .daftar-peserta p {
+  font-size: 14px;
+  color: #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-header .tambah-peserta {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #A098AE;
+}
+
+
+.shortcut .peserta-shortcut .peserta-header .tambah-peserta a {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-header .tambah-peserta a:hover{
+  background-color: #303972;
+  color: #FFFFFF;
+}
+
+.shortcut .peserta-shortcut .peserta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcut .peserta-shortcut .peserta-content li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile .peserta-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile .peserta-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile .peserta-id {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile .peserta-id h4 {
+  font-size: 15px;
+  color: #303972;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-profile .peserta-id p {
+  font-size: 14px;
+  color: #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-message {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-message a {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: #A098AE;
+}
+
+.shortcut .peserta-shortcut .peserta-content li .peserta-message a:hover {
+  background-color: #303972;
+  color: #FFFFFF;
+}
+
+.shortcut .peserta-shortcut .peserta-content .btn {
+  margin-top: 5px;
+}
+
+/* Shortcut Daftar Pesan */
+.shortcut .pesan-shortcut {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.shortcut .pesan-shortcut .pesan-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.shortcut .pesan-shortcut .pesan-header h3 {
+  font-size: 24px;
+  color: #303972;
+}
+
+.shortcut .pesan-shortcut .pesan-content li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  border-bottom: 0.8px solid #E0E0E0;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile .pesan-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #A098AE;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile .pesan-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile .pesan-id {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile .pesan-id h4 {
+  font-size: 15px;
+  color: #303972;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-profile .pesan-id p {
+  font-size: 14px;
+  color: #A098AE;
+}
+
+.shortcut .pesan-shortcut .pesan-content li .pesan-timestamp p {
+  font-size: 14px;
+  color: #A098AE;
+}
+
+.shortcut .pesan-shortcut .pesan-content .btn {
+  margin-top: 5px;
+}
+
+
+/* ========== CSS UMUM ========= */
+.user-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-profile .status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-profile .status h4 {
+  font-size: 15px;
+  color: #303972;
+}
+
+.user-profile .status p {
+  font-size: 14px;
+  color: #A098AE;
+}
+
+.user-profile .photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #A098AE;
+}
+
+.user-profile .photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+a button {
+  width: 225px;
+  height: 40px;
+  color: #4D44B5;
+  background: none;
+  cursor: pointer;
+  border: none;
+  background: rgba(77, 68, 181, 0.1);
+  border-radius: 20px;
+}
+
+a button:hover {
+  background: #4D44B5;
+  color: #FFFFFF;
+}
+
+
+
+/* ========== RESPONSIVE WEB CSS ========== */
+@media (max-width: 920px) {
+  .container {
+    grid-template-columns: auto auto;
+    grid-template-rows: 75px auto auto auto;
+    grid-template-areas:
+      "header header"
+      "summary summary"
+      "calendar calendar"
+      "task task";
+  }
+
+  .shortcut {
+    display: none;
+  }
+
+  #button {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width : 768px) {
+  .container {
+    grid-template-columns: auto;
+    grid-template-rows: 75px auto auto auto;
+    grid-template-areas:
+      "header"
+      "summary"
+      "calendar"
+      "task";
+  }
+
+  .shortcut {
+    display: none;
+  }
+
+  .summary {
+    overflow: visible;
+  }
+
+  #button {
+    margin-bottom: 15px;
+  }
+
+}
+
+@media (max-width : 600px) {
+  .container {
+    grid-template-columns: auto;
+    grid-template-rows: 75px auto auto auto;
+    grid-template-areas:
+      "header"
+      "summary"
+      "calendar"
+      "task";
+  }
+
+  .shortcut {
+    display: none;
+  }
+
+  .summary {
+    width: calc(100% - 10px);
+    font-size: 15px;
+    height: auto;
+  }
+
+  .summary .icons {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  .calendar {
+    width: calc(100% - 10px);
+    height: auto;
+    overflow: visible;
+  }
+
+  .task {
+    width: calc(100% - 10px);
+    overflow: visible;
+    font-size: 13px
+  }
+
+  .task li .task-box .task-content .task-title {
+    font-size: 12px;
+    display: block;
+    margin: 10px;
+  }
+
+  #button {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 578px) {
+  .header .user-profile {
+      display: none;
+  }
+
+  .summary {
+    background: none;
+    display: block;
+  }
+
+  .summary ul {
+    display: block;
+  }
+
+  .summary li {
+    margin: 10px 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background: #FFFFFF;
+    border-radius: 10px;
+  }
+
+  .summary .box {
+    display: flex;
+    justify-content: left;
+  }
+}
